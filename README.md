@@ -25,15 +25,23 @@ A base é um website que contém anúncios de vendas. No trabalho estamos filtra
 
 ### 2. Modelagem
 
-A extração dos dados foi realizada utilizando a API do Mercado Livre, através da biblioteca Requests. A API disponibiliza diversos dados dos anúncios (título, preço, se o produto é novo ou usado, etc) e também dados dos vendedores (nome, reputação, qtde de vendas, qtde de avaliações, etc). Então selecionei os dados que achei útil para elaborar um dashboard para realizar uma filtragem personalizada para rápida visualização dos anúncios mais interessantes. Porém um dos desafios foi classificar o modelo dos aparelhos, visto que os anúncios estavam com dados inconsistentes (por exemplo, havia anúncios cujo modelo era totalmente divergente ou até um modelo que não existe). Daí tive a ideia de treinar um classificador de acordo com o título do anúncio. Então eu realizei o treinamento de modelo com os dados de modelo que estavam consistentes para posteriormente classificá-los através dos título.
+A extração dos dados foi realizada utilizando a API do Mercado Livre, através da biblioteca Requests. A API disponibiliza diversos dados dos anúncios (título, preço, se o produto é novo ou usado, etc) e também dados dos vendedores (nome, reputação, qtde de vendas, qtde de avaliações, etc). Então selecionei os dados que achei útil para elaborar um dashboard para realizar uma filtragem personalizada para rápida visualização dos anúncios mais interessantes. 
+
+Tive que realizar uma série de limpeza de dados visto que a API estava trazendo dados de aparelhos que não eram objeto da análise (modelos anteriores ao Iphone 14).
+
+Um dos desafios foi classificar o modelo dos aparelhos, visto que os anúncios estavam com dados inconsistentes (por exemplo, havia anúncios cujo modelo era totalmente divergente ou até um modelo que não existe). Daí tive a ideia de treinar um classificador de acordo com o título do anúncio. Então eu realizei o treinamento de modelo com os dados de modelo que estavam consistentes para posteriormente classificá-los através dos título. Para isso utilizei uma matriz esparsa (CountVectorizer) dos títulos dos anúncios como entrada, o modelo do aparelho como saída e RandomForest como classificador. O resultado foi satisfatório, pois obtive 100% de acurácia na base de teste.
+
+Um desafio parecido foi criar uma classificação pelo armazenamento do aparelho (128Gb, 256Gb, 512Gb ou 1Tb). Para isso utilizei a técnica de regex para extração do título do anúncio.
+
+Por fim gravei os dados em um banco de dados SQL Server para posterior acesso através do Power BI. Construií o dashboard de um modo personalizado, onde poderia realizar as consultas dos aparelhos e melhor filtrar os modelos dos aparelhos anunciados.
 
 ### 3. Resultados
 
-Os resultados foram satisfatórios visto que disponibilizamos os dados extraídos para um dataframe a fim de analisá-los.
+O dashboard ficou bem elaborado com os dados extraídos da API do Mercado Livre, possibilitando uma informação mais rápida e objetiva na busca de um aparelho Iphone 14.
 
 ### 4. Conclusões
 
-Somos gratos ao professor Felipe Borges que demonstrou muito bem como elaborar modelos de Web Scraping. Conforme relatado em aula, não existe um modelo perfeito pois há diversas formas de chegar ao mesmo resultado.
+O recurso de extração de dados utilizando API e/ou Web Scraping é bem útil para automatizar fluxo de dados e realizar análises. 
 
 ---
 
