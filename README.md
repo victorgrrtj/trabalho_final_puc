@@ -2,14 +2,11 @@
 # Trabalho Final de LUI
 
 #### Aluno: [Victor Ribeiro](https://github.com/victorgrrtj)
-#### Aluna: [Thaís Guarize](https://github.com/victorgrrtj)
 #### Orientador: [Felipe Borges](https://github.com/link_do_github)
 
 ---
 
-Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "LUI - Localização e Uso da Informação".
-
-[Trabalho_LUI.ipynb](https://github.com/victorgrrtj/lui_work/blob/main/Trabalho_LUI.ipynb)
+Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como trabalho de conclusão de curso.
 
 ---
 
@@ -17,23 +14,18 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em português -->
 
-O objetivo deste trabalho é realizar um Web Scraping a fim de gerar um dataframe contendo informações de um site de imóveis. 
-
-### Abstract <!-- Opcional! Caso não aplicável, remover esta seção -->
-
-<!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
-
-The work's purpose is to web scrap a website based on properties' rent and sell in order to generate a dataframe.
+O objetivo deste trabalho é realizar um Web Scraping nas vendas de Iphone 14 realizadas no Mercado Livre.
 
 ### 1. Introdução
 
-- Base de Dados: [LINK](https://www.dfimoveis.com.br/aluguel/df/todos/imoveis)
+- Base de Dados: [LINK](https://lista.mercadolivre.com.br/iphone-14#D[A:iphone%2014])
+- API: [LINK](https://api.mercadolibre.com/sites/MLB/search?q=Iphone%2014&offset=0)
 
-A base é um website que contém dados sobre aluguel e venda de imóveis. O objetivo é extrair os mais relevantes a fim de incluí-los em um dataframe.
+A base é um website que contém anúncios de vendas. No trabalho estamos filtrando apenas smartphones da marca Apple, modelo Iphone 14.
 
 ### 2. Modelagem
 
-A extração dos dados foi realizada utilizando as bibliotecas BeautifulSoup e Requests. Para tal, criamos uma lista contendo as páginas das quais os dados seriam extraídos e utilizamos as tags de cada imóvel para extrair o título, o valor total, valor por m2, área, descrição, tipo de imóvel, objetivo (aluguel ou venda), quantidade e tipo de cômodos. Utilizamos as bibliotecas Time e Random para definir uma pausa entre as requisições do site para não sobrecarregá-lo e/ou termos nosso acesso bloqueado. Após a extração, criamos um dicionário contendo os dados de cada imóvel publicado no site e geramos para um arquivo json. Para mostrar o resultado, passamos os dados para um dataframe e realizamos uma filtragem e uma ordenação.
+A extração dos dados foi realizada utilizando a API do Mercado Livre, através da biblioteca Requests. A API disponibiliza diversos dados dos anúncios (título, preço, se o produto é novo ou usado, etc) e também dados dos vendedores (nome, reputação, qtde de vendas, qtde de avaliações, etc). Então selecionei os dados que achei útil para elaborar um dashboard para realizar uma filtragem personalizada para rápida visualização dos anúncios mais interessantes. Porém um dos desafios foi classificar o modelo dos aparelhos, visto que os anúncios estavam com dados inconsistentes (por exemplo, havia anúncios cujo modelo era totalmente divergente ou até um modelo que não existe). Daí tive a ideia de treinar um classificador de acordo com o título do anúncio. Então eu realizei o treinamento de modelo com os dados de modelo que estavam consistentes para posteriormente classificá-los através dos título.
 
 ### 3. Resultados
 
@@ -46,8 +38,6 @@ Somos gratos ao professor Felipe Borges que demonstrou muito bem como elaborar m
 ---
 
 Matrícula Victor: 211.100.047
-
-Matrícula Thaís: 211.100.376
 
 Pontifícia Universidade Católica do Rio de Janeiro
 
