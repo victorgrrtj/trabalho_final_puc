@@ -38,7 +38,7 @@ Por fim gravei os dados em um banco de dados SQL Server para posterior acesso at
 
 ### 3. Resultados
 
-O [dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDkyOGZlODAtNThmMy00MjYxLWI1ZWQtZGQ4YTczM2U0N2FkIiwidCI6ImYxYWU0NGY0LWUzYmEtNDViMC05ZGJhLWNkNGU1ZTZlMGZlNCJ9) ficou bem elaborado com os dados extraídos da API do Mercado Livre, possibilitando uma informação mais rápida e objetiva na busca de um aparelho Iphone 14.
+O [dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDkyOGZlODAtNThmMy00MjYxLWI1ZWQtZGQ4YTczM2U0N2FkIiwidCI6ImYxYWU0NGY0LWUzYmEtNDViMC05ZGJhLWNkNGU1ZTZlMGZlNCJ9) ficou bem elaborado com os dados extraídos da API do Mercado Livre, possibilitando uma informação mais rápida e objetiva na busca de um aparelho Iphone 14, visto que também possui o link direto para o anúncio.
 
 ### 4. Conclusões
 
