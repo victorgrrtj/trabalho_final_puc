@@ -18,8 +18,9 @@ O objetivo deste trabalho é realizar um Web Scraping nas vendas de Iphone 14 re
 
 ### 1. Introdução
 
-- Base de Dados: [LINK](https://lista.mercadolivre.com.br/iphone-14#D[A:iphone%2014])
-- API: [LINK](https://api.mercadolibre.com/sites/MLB/search?q=Iphone%2014&offset=0)
+- [Base de Dados](https://lista.mercadolivre.com.br/iphone-14#D[A:iphone%2014])
+- [API](https://api.mercadolibre.com/sites/MLB/search?q=Iphone%2014&offset=0)
+- [Painel](https://app.powerbi.com/view?r=eyJrIjoiNDkyOGZlODAtNThmMy00MjYxLWI1ZWQtZGQ4YTczM2U0N2FkIiwidCI6ImYxYWU0NGY0LWUzYmEtNDViMC05ZGJhLWNkNGU1ZTZlMGZlNCJ9)
 
 A base é um website que contém anúncios de vendas. No trabalho estamos filtrando apenas smartphones da marca Apple, modelo Iphone 14.
 
@@ -37,7 +38,7 @@ Por fim gravei os dados em um banco de dados SQL Server para posterior acesso at
 
 ### 3. Resultados
 
-O dashboard ficou bem elaborado com os dados extraídos da API do Mercado Livre, possibilitando uma informação mais rápida e objetiva na busca de um aparelho Iphone 14.
+O [dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDkyOGZlODAtNThmMy00MjYxLWI1ZWQtZGQ4YTczM2U0N2FkIiwidCI6ImYxYWU0NGY0LWUzYmEtNDViMC05ZGJhLWNkNGU1ZTZlMGZlNCJ9) ficou bem elaborado com os dados extraídos da API do Mercado Livre, possibilitando uma informação mais rápida e objetiva na busca de um aparelho Iphone 14.
 
 ### 4. Conclusões
 
