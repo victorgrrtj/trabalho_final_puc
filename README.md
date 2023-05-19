@@ -14,7 +14,7 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em português -->
 
-O objetivo deste trabalho é realizar um Web Scraping nas vendas de Iphone 14 realizadas no Mercado Livre.
+O objetivo deste trabalho é realizar um Web Scraping nas vendas de Iphone 14 realizadas no Mercado Livre para construção de um painel Power BI para criação de indicadores e tabela para seleção dos anúncios.
 
 ### 1. Introdução
 
