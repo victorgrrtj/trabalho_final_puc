@@ -53,7 +53,7 @@ Realizei o treinamento de modelo com os dados de modelo que estavam consistentes
 **Motivo:** Visto que os dados de aparelhos estão inconsistentes, é necessário criar uma pipeline para classificar os modelos dos aparelhos de acordo com o modelo treinado.
 
 **Como foi realizado:**
-Realizei o upload do classificador (model.joblib) e da matriz esparsa (cv.joblib) para classificar os modelos dos aparelhos corretamente. Utilizo novamente a API do Mercado Livre para obter os dados, formatá-los, gerar indicadores e realizar carga de dados em banco de dados SQL Server.
+Realizei o upload do classificador ([model.joblib](https://github.com/victorgrrtj/trabalho_final_puc/blob/main/model.joblib)) e da matriz esparsa ([cv.joblib](https://github.com/victorgrrtj/trabalho_final_puc/blob/main/cv.joblib)) para classificar os modelos dos aparelhos corretamente. Utilizo novamente a API do Mercado Livre para obter os dados, formatá-los, gerar indicadores e realizar carga de dados em banco de dados SQL Server.
 
 ### 2.4 - Elaboração de Painel:
 **Objetivo:** Criar Painel Power BI personalizado para rápida análise de oportunidades de compras de aparelhos.
