@@ -1,12 +1,12 @@
 <!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
-# Trabalho Final de LUI
+# Trabalho Final de LUI - Localização e Uso da Informação
 
 #### Aluno: [Victor Ribeiro](https://github.com/victorgrrtj)
 #### Orientador: [Felipe Borges](https://github.com/link_do_github)
 
 ---
 
-Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como trabalho de conclusão de curso.
+Script apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como trabalho de conclusão de curso.
 
 ---
 
@@ -26,31 +26,39 @@ A base é um website que contém anúncios de vendas. No trabalho estamos filtra
 
 ## 2. Modelagem
 
-    * Primeira etapa -  o scraping - descrever o objetivo e como foi utilizado.
-    * Segunda etapa - o modelo para classificar o modelo do iphone - descrever o pq de sua necessidade (como já foi colocado), o objetivo e como foi utilizado.
-    * Terceira etapa - o regex para extrair a armazenagem do iphone - escrever o pq da necessidade, o objetivo e como foi feito. (Repare que isso nao é uma etapa de classificação, é apenas uma extração baseada em um regex).
-E faça as referências dos arquivos de acordo com suas explicações no texto.
-
-
 ### 2.1 - Scraping:
-**Objetivo:** Obter dado de anúncios de Iphone 14 do site Mercado Livre.
+**Objetivo:** Obter dado de anúncios de Iphone 14 do site [Mercado Livre](https://lista.mercadolivre.com.br/iphone-14#D%5BA:iphone%2014%5D).
+
+**Arquivo:** [trabalho_final_treino.ipynb](https://github.com/victorgrrtj/trabalho_final_puc/blob/main/trabalho_final_treino.ipynb)
 
 **Como foi realizado:**
-A extração dos dados foi realizada utilizando a API do Mercado Livre, através da biblioteca Requests. A API disponibiliza diversos dados dos anúncios (título, preço, se o produto é novo ou usado, etc) e também dados dos vendedores (nome, reputação, quantidade de vendas e de avaliações, entre outros). Então selecionei os dados que achei útil para elaborar um dashboard personalizado para rápida visualização dos anúncios mais interessantes.
+A extração dos dados foi realizada utilizando a [API do Mercado Livre](https://api.mercadolibre.com/sites/MLB/search?q=Iphone%2014&offset=0), através da biblioteca [Requests](https://requests.readthedocs.io/en/latest/). A API disponibiliza diversos dados dos anúncios (título, preço, se o produto é novo ou usado, etc) e também dados dos vendedores (nome, reputação, quantidade de vendas e de avaliações, entre outros). Então selecionei os dados que achei útil para elaborar um dashboard personalizado para rápida visualização dos anúncios mais interessantes.
 Tive que realizar uma série de limpeza de dados visto que a API estava trazendo dados de aparelhos que não eram objeto da análise (modelos anteriores ao Iphone 14).
 
 ### 2.2 - Modelo de Classificação:
 **Objetivo:** Classificar modelos de aparelhos de acordo com o título.
 
+**Arquivo:** [trabalho_final_treino.ipynb](https://github.com/victorgrrtj/trabalho_final_puc/blob/main/trabalho_final_treino.ipynb)
+
 **Motivo:** Fonte de dados de modelos dos aparelhos parcialmente inconsistente.
 
 **Como foi realizado:**
-Realizei o treinamento de modelo com os dados de modelo que estavam consistentes para posteriormente classificá-los através dos título. Para isso utilizei uma matriz esparsa (CountVectorizer) dos títulos dos anúncios como entrada, o modelo do aparelho como saída e RandomForest como classificador. O resultado foi satisfatório, pois obtive 100% de acurácia na base de teste. Daí exportei o classificador (model.joblib) e a matriz esparsa (cv.joblib) para utilizar na classificação do modelo. O notebook trabalho_final_predicao.ipynb possui o treinamento do classificador e o notebook trabalho_final_treino.ipynb possui a utilização do classificador e ingestão de dados em um banco de dados.
+Realizei o treinamento de modelo com os dados de modelo que estavam consistentes para posteriormente classificá-los através dos título. Para isso realizei a limpeza dos dados, balanceamento da base dados ([OverSampling](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler)) e utilizei uma matriz esparsa ([CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)) dos títulos dos anúncios como entrada, o modelo do aparelho como saída e [RandomForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) como classificador. O resultado foi satisfatório, pois obtivemos 100% de acurácia na base de teste. Daí exportei o classificador (model.joblib) e a matriz esparsa (cv.joblib) para utilizar na classificação do modelo.
 
-### 2.3 - Filtragem por regex:
-**Objetivo:** Um desafio parecido foi filtrar pelo armazenamento do aparelho (128Gb, 256Gb, 512Gb ou 1Tb). Para isso utilizei a técnica de regex para extração do título do anúncio.
+### 2.3 - Uso do Modelo :
+**Objetivo:** Realizar carga de dados em um banco de dados para alimentar painel do Power BI.
 
-Por fim gravei os dados em um banco de dados SQL Server para posterior acesso através do Power BI. Construií o dashboard de um modo personalizado, onde poderia realizar as consultas dos aparelhos e melhor filtrar os modelos dos aparelhos anunciados.
+**Arquivo:** [trabalho_final_predicao.ipynb](https://github.com/victorgrrtj/trabalho_final_puc/blob/main/trabalho_final_predicao.ipynb)
+ 
+**Motivo:** Visto que os dados de aparelhos estão inconsistentes, é necessário criar uma pipeline para classificar os modelos dos aparelhos de acordo com o modelo treinado.
+
+**Como foi realizado:**
+Realizei o upload do classificador (model.joblib) e da matriz esparsa (cv.joblib) para classificar os modelos dos aparelhos corretamente. Utilizo novamente a API do Mercado Livre para obter os dados, formatá-los, gerar indicadores e realizar carga de dados em banco de dados SQL Server.
+
+### 2.4 - Elaboração de Painel:
+**Objetivo:** Criar Painel Power BI personalizado para rápida análise de oportunidades de compras de aparelhos.
+
+**Como foi realizado:** A montagem do painel contou com uso de filtros, gráficos, indicadores e tabela. Visto que foi utilizado uma base dados, o processo ficou automático. Atualizando a base de dados, o Painel é também atualizado.
 
 ## 3. Resultados
 
@@ -58,7 +66,7 @@ O [dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDkyOGZlODAtNThmMy00MjYxLWI
 
 ## 4. Conclusões
 
-O recurso de extração de dados utilizando API e/ou Web Scraping é bem útil para automatizar fluxo de dados e realizar análises. 
+O recurso de extração de dados utilizando API e/ou Web Scraping é bem útil para automatizar fluxo de dados, construir análises de dados e modelos de aprendizagem de máquina.
 
 ---
 
