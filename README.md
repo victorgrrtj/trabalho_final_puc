@@ -1,5 +1,5 @@
 <!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
-# Trabalho Final de LUI - Localização e Uso da Informação
+# Construção de Pipeline de Dados - API Mercado Livre
 
 #### URL do Projeto: https://github.com/victorgrrtj/trabalho_final_puc
 #### Aluno: [Victor Ribeiro](https://github.com/victorgrrtj)
