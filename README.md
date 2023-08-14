@@ -1,6 +1,7 @@
 <!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
 # Trabalho Final de LUI - Localização e Uso da Informação
 
+#### URL do Projeto: https://github.com/victorgrrtj/trabalho_final_puc
 #### Aluno: [Victor Ribeiro](https://github.com/victorgrrtj)
 #### Orientador: [Felipe Borges](https://github.com/link_do_github)
 
